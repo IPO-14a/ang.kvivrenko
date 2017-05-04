@@ -118,10 +118,10 @@ function evtTgt(e){
 	if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
 	return el;
 }
-<<<<<<< HEAD
+
 
 function EvtObj(e){if(!e)e=window.event;return e;}
-=======
+
 
 function EvtObj(e){if(!e)e=window.event;return e;}
 
@@ -151,4 +151,4 @@ function f_cps(obj) {
 	obj.style.border='1px solid #FFD088';//'1px solid #606060';
 	obj.style.cursor='pointer';
 }
->>>>>>> refs/remotes/origin/branch_2
+
