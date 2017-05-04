@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- This document was created with Syntext Serna Free. -->
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
+<article>
+  <title>Хивренко Анжелика ИПО-14а</title>
+  <abstract>
+    <title>Руководство программиста</title>
+    <para>Календарь Date - picker.</para>
+  </abstract>
+  <para>Руководство программиста ориентировано на описание продукта посредством сценария использования и сопоставленному ему примера кода.</para>
+  <abstract>
+    <title>Сценарий использования 1 - Выбор текущей даты</title>
+    <para>Пользователь кликает на кнопку где отображается сегодняшняя дата и форма заполняется.</para>
+    <para>function today() {
+</para>
+    <para>updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear());
+getObj(&apos;fc&apos;).style.display=&apos;none&apos;;
+</para>
+    <para>prepcalendar(&apos;&apos;,sccm,sccy);
+</para>
+    <para>}</para>
+  </abstract>
+  <abstract>
+    <title>Сценарий использования 2 - Выбор дня</title>
+    <para>Пользователь кликает на определенный день недели при этом выбираются: (число, месяц, год).</para>
+    <para>function prepcalendar(hd,cm,cy) {
+</para>
+    <para>now=new Date();
+</para>
+    <para>sd=now.getDate();
+</para>
+    <para>td=new Date();
+</para>
+    <para>td.setDate(1);
+</para>
+    <para>td.setFullYear(cy);
+</para>
+    <para>td.setMonth(cm);
+</para>
+    <para>cd=td.getDay();
+</para>
+    <para>if (cd==0)cd=6; </para>
+    <para>else cd--;
+</para>
+    <para>getObj(&apos;mns&apos;).innerHTML=mn[cm]+&apos;&amp;nbsp;</para>
+    <para>&lt;span style=&quot;cursor:pointer&quot; onclick=&quot;upmonth(-12)&quot;&gt;&amp;lt;&lt;/span&gt;&apos;+cy+&apos;&lt;span style=&quot;cursor:pointer&quot; onclick=&quot;upmonth(12)&quot;&gt;&amp;gt;&lt;/span&gt;&apos;;
+</para>
+    <para>marr=((cy%4)==0)?mnl:mnn;
+</para>
+    <para>for(var d=1;d&lt;=42;d++) {
+</para>
+    <para>cv=getObj(&apos;cv&apos;+parseInt(d));
+</para>
+    <para>f_cps(cv);</para>
+    <para>if ((d &gt;= (cd -(-1)))&amp;&amp;(d&lt;=cd-(-marr[cm]))) {
+</para>
+    <para>dip=((d-cd &lt; sd)&amp;&amp;(cm==sccm)&amp;&amp;(cy==sccy));
+</para>
+    <para>htd=((hd!=&apos;&apos;)&amp;&amp;(d-cd==hd));
+
+</para>
+    <para>cv.onmouseover=cs_over;
+</para>
+    <para>cv.onmouseout=cs_out;
+</para>
+    <para>cv.onclick=cs_click;
+
+</para>
+    <para>// if today
+</para>
+    <para>if (sccm == cm &amp;&amp; sccd == (d-cd) &amp;&amp; sccy == cy)
+cv.style.color=&apos;#FF9900&apos;;
+
+</para>
+    <para>// if selected date
+</para>
+    <para>if (cm == selectedm &amp;&amp; cy == selectedy &amp;&amp; selectedd == (d-cd) )
+{
+cv.style.background=&apos;#FFEBCC&apos;;
+</para>
+    <para>//cv.style.color=&apos;#e0d0c0&apos;;
+</para>
+    <para>//cv.style.fontSize=&apos;1.1em&apos;;
+</para>
+    <para>//cv.style.fontStyle=&apos;italic&apos;;
+</para>
+    <para>//cv.style.fontWeight=&apos;bold&apos;;
+
+</para>
+    <para>// when use </para>
+    <para>style.background
+cv.onmouseout=null;
+</para>
+    <para>}
+
+</para>
+    <para>cv.innerHTML=d-cd;
+
+</para>
+    <para>calvalarr[d]=addnull(d-cd,cm-(-1),cy);
+</para>
+    <para>}
+</para>
+    <para>else {
+cv.innerHTML=&apos;&amp;nbsp;&apos;;
+</para>
+    <para>cv.onmouseover=null;
+</para>
+    <para>cv.onmouseout=null;
+</para>
+    <para>cv.onclick=null;
+</para>
+    <para>cv.style.cursor=&apos;default&apos;;
+</para>
+    <para>}
+</para>
+    <para>}
+</para>
+    <para>}</para>
+  </abstract>
+  <abstract>
+    <title>Сценарий использования 3 - Получение текущей даты</title>
+    <para>Пользователь при открытии календаря получает текущую дату.</para>
+    <para>var now = new Date;
+</para>
+    <para>var sccd=now.getDate();
+</para>
+    <para>var sccm=now.getMonth();
+</para>
+    <para>var sccy=now.getFullYear();
+</para>
+    <para>var ccm=now.getMonth();
+</para>
+    <para>var ccy=now.getFullYear();</para>
+  </abstract>
+</article>
