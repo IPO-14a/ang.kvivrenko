@@ -224,3 +224,23 @@ function prepcalendar(hd,cm,cy) {
 			}
 	}
 }
+
+prepcalendar('',ccm,ccy);
+
+function upmonth(s)
+{
+	marr=((ccy%4)==0)?mnl:mnn;
+
+	ccm+=s;
+	if (ccm>=12)
+	{
+		ccm-=12;
+		ccy++;
+	}
+	else if(ccm<0)
+	{
+		ccm+=12;
+		ccy--;
+	}
+	prepcalendar('',ccm,ccy);
+}
