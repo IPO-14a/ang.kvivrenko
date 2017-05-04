@@ -137,3 +137,13 @@ var mn=new Array('Январь','Февраль','Март','Апрель','Ма
 var mnn=new Array('31','28','31','30','31','30','31','31','30','31','30','31');
 var mnl=new Array('31','29','31','30','31','30','31','31','30','31','30','31');
 var calvalarr=new Array(42);
+
+function f_cps(obj) {
+	obj.style.background='#FFFFFF';
+	obj.style.font='10px Arial';
+	obj.style.color='#333333';
+	obj.style.textAlign='center';
+	obj.style.textDecoration='none';
+	obj.style.border='1px solid #FFD088';//'1px solid #606060';
+	obj.style.cursor='pointer';
+}
