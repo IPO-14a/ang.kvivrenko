@@ -119,3 +119,4 @@ function evtTgt(e){
 	return el;
 }
 
+function EvtObj(e){if(!e)e=window.event;return e;}
