@@ -127,3 +127,9 @@ function cs_over(e) {
 function cs_out(e) {
 	evtTgt(EvtObj(e)).style.background='#FFFFFF';
 }
+
+function cs_click(e) {
+	updobj.value=calvalarr[evtTgt(EvtObj(e)).id.substring(2,evtTgt(EvtObj(e)).id.length)];
+	getObj('fc').style.display='none';
+}
+
