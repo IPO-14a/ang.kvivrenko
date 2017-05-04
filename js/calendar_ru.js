@@ -1,3 +1,4 @@
+
 function getObj(objID)
 {
     if (document.getElementById) {return document.getElementById(objID);}
@@ -83,6 +84,8 @@ document.write('</table>');
 document.all?document.attachEvent('onclick',checkClick):document.addEventListener('click',checkClick,false);
 
 
+
+
 var updobj;
 function lcs(ielem) {
 	updobj=ielem;
@@ -118,20 +121,13 @@ function evtTgt(e){
 	if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
 	return el;
 }
-
-
 function EvtObj(e){if(!e)e=window.event;return e;}
-
-
-function EvtObj(e){if(!e)e=window.event;return e;}
-
 function cs_over(e) {
 	evtTgt(EvtObj(e)).style.background='#FFEBCC';
 }
 function cs_out(e) {
 	evtTgt(EvtObj(e)).style.background='#FFFFFF';
 }
-
 function cs_click(e) {
 	updobj.value=calvalarr[evtTgt(EvtObj(e)).id.substring(2,evtTgt(EvtObj(e)).id.length)];
 	getObj('fc').style.display='none';
@@ -250,7 +246,6 @@ function today() {
 	getObj('fc').style.display='none';
 	prepcalendar('',sccm,sccy);
 }
-
 
 function addnull(d,m,y)
 {
