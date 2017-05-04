@@ -152,3 +152,111 @@ function f_cps(obj) {
 	obj.style.cursor='pointer';
 }
 
+function f_cpps(obj) {
+	obj.style.background='#C4D3EA';
+	obj.style.font='10px Arial';
+	obj.style.color='#FF9900';
+	obj.style.textAlign='center';
+	obj.style.textDecoration='line-through';
+	obj.style.border='1px solid #6487AE';
+	obj.style.cursor='default';
+}
+
+function f_hds(obj) {
+	obj.style.background='#FFF799';
+	obj.style.font='bold 10px Arial';
+	obj.style.color='#333333';
+	obj.style.textAlign='center';
+	obj.style.border='1px solid #6487AE';
+	obj.style.cursor='pointer';
+}
+
+// day selected
+function prepcalendar(hd,cm,cy) {
+	now=new Date();
+	sd=now.getDate();
+	td=new Date();
+	td.setDate(1);
+	td.setFullYear(cy);
+	td.setMonth(cm);
+	cd=td.getDay();
+	if (cd==0)cd=6; else cd--;
+	getObj('mns').innerHTML=mn[cm]+'&nbsp;<span style="cursor:pointer" onclick="upmonth(-12)">&lt;</span>'+cy+'<span style="cursor:pointer" onclick="upmonth(12)">&gt;</span>';
+	marr=((cy%4)==0)?mnl:mnn;
+	for(var d=1;d<=42;d++) {
+		cv=getObj('cv'+parseInt(d));
+		f_cps(cv);
+		if ((d >= (cd -(-1)))&&(d<=cd-(-marr[cm]))) {
+			dip=((d-cd < sd)&&(cm==sccm)&&(cy==sccy));
+			htd=((hd!='')&&(d-cd==hd));
+
+			cv.onmouseover=cs_over;
+			cv.onmouseout=cs_out;
+			cv.onclick=cs_click;
+
+			// if today
+			if (sccm == cm && sccd == (d-cd) && sccy == cy)
+				cv.style.color='#FF9900';
+
+			// if selected date
+			if (cm == selectedm && cy == selectedy && selectedd == (d-cd) )
+			{
+				cv.style.background='#FFEBCC';
+				//cv.style.color='#e0d0c0';
+				//cv.style.fontSize='1.1em';
+				//cv.style.fontStyle='italic';
+				//cv.style.fontWeight='bold';
+
+				// when use style.background
+				cv.onmouseout=null;
+			}
+
+			cv.innerHTML=d-cd;
+
+			calvalarr[d]=addnull(d-cd,cm-(-1),cy);
+		}
+		else {
+			cv.innerHTML='&nbsp;';
+			cv.onmouseover=null;
+			cv.onmouseout=null;
+			cv.onclick=null;
+			cv.style.cursor='default';
+			}
+	}
+}
+
+prepcalendar('',ccm,ccy);
+
+function upmonth(s)
+{
+	marr=((ccy%4)==0)?mnl:mnn;
+
+	ccm+=s;
+	if (ccm>=12)
+	{
+		ccm-=12;
+		ccy++;
+	}
+	else if(ccm<0)
+	{
+		ccm+=12;
+		ccy--;
+	}
+	prepcalendar('',ccm,ccy);
+}
+
+function today() {
+	updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear());
+	getObj('fc').style.display='none';
+	prepcalendar('',sccm,sccy);
+}
+
+
+function addnull(d,m,y)
+{
+	var d0='',m0='';
+	if (d<10)d0='0';
+	if (m<10)m0='0';
+
+	return ''+d0+d+'-'+m0+m+'-'+y;
+}
