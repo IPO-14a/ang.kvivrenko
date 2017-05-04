@@ -244,3 +244,9 @@ function upmonth(s)
 	}
 	prepcalendar('',ccm,ccy);
 }
+
+function today() {
+	updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear());
+	getObj('fc').style.display='none';
+	prepcalendar('',sccm,sccy);
+}
