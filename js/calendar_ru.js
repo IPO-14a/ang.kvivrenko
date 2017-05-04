@@ -161,3 +161,12 @@ function f_cpps(obj) {
 	obj.style.border='1px solid #6487AE';
 	obj.style.cursor='default';
 }
+
+function f_hds(obj) {
+	obj.style.background='#FFF799';
+	obj.style.font='bold 10px Arial';
+	obj.style.color='#333333';
+	obj.style.textAlign='center';
+	obj.style.border='1px solid #6487AE';
+	obj.style.cursor='pointer';
+}
