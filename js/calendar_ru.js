@@ -111,3 +111,11 @@ function lcs(ielem) {
 
 }
 
+function evtTgt(e){
+	var el;
+	if(e.target)el=e.target;
+	else if(e.srcElement)el=e.srcElement;
+	if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
+	return el;
+}
+
