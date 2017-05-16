@@ -4,8 +4,7 @@
 * Возвращает слои календаря.
 *
 */
-function getObj(objID)
-{
+function getObj(objID) {
     if (document.getElementById) {return document.getElementById(objID);}
     else if (document.all) {return document.all[objID];}
     else if (document.layers) {return document.layers[objID];}
@@ -28,7 +27,7 @@ function checkClick(e) {
 
 function isChild(s,d) {
     while(s) {
-        if (s==d)
+	    if (s==d)
             return true;
         s=s.parentNode;
     }
@@ -41,13 +40,10 @@ function isChild(s,d) {
 * влево и вправо (вверх)
 *
 */
-function Left(obj)
-{
+function Left(obj) {
     var curleft = 0;
-    if (obj.offsetParent)
-    {
-        while (obj.offsetParent)
-        {
+    if (obj.offsetParent) {
+        while (obj.offsetParent) {
             curleft += obj.offsetLeft
             obj = obj.offsetParent;
         }
@@ -55,17 +51,14 @@ function Left(obj)
             curleft += obj.x;
         return curleft;
 }
-function Top(obj)
-{
+function Top(obj) {
     var curtop = 0;
-    if (obj.offsetParent)
-	{
-        while (obj.offsetParent)
-		{
+    if (obj.offsetParent) {
+        while (obj.offsetParent) {
             curtop += obj.offsetTop
             obj = obj.offsetParent;
-		}
-	}
+        }
+    }
     else if (obj.y)
         curtop += obj.y;
     return curtop;
@@ -127,7 +120,7 @@ function lcs(ielem) {
     for(var k=0;k<curdtarr.length;k++) {
         if (isNaN(curdtarr[k]))
             isdt=false;
-	}
+    }
     if (isdt&(curdtarr.length==3)) {
 		ccm=curdtarr[1]-1;
 		ccy=curdtarr[2];
@@ -137,11 +130,10 @@ function lcs(ielem) {
 		selectedy=parseInt ( curdtarr[2], 10 );
 
 		prepcalendar(curdtarr[0],curdtarr[1]-1,curdtarr[2]);
-	}
-
+    }
 }
 
-function evtTgt(e){
+function evtTgt(e) {
 	var el;
 	if(e.target)el=e.target;
 	else if(e.srcElement)el=e.srcElement;
@@ -236,8 +228,7 @@ function prepcalendar(hd,cm,cy) {
 				cv.style.color='#FF9900';
 
 			// if selected date
-            if (cm == selectedm && cy == selectedy && selectedd == (d-cd) )
-			{
+            if (cm == selectedm && cy == selectedy && selectedd == (d-cd) ) {
                 cv.style.background='#FFEBCC';
 				//cv.style.color='#e0d0c0';
 				//cv.style.fontSize='1.1em';
@@ -246,20 +237,18 @@ function prepcalendar(hd,cm,cy) {
 
 				// when use style.background
 				cv.onmouseout=null;
-			}
-
+            }
 			cv.innerHTML=d-cd;
-
 			calvalarr[d]=addnull(d-cd,cm-(-1),cy);
-		}
+        }
 		else {
 			cv.innerHTML='&nbsp;';
 			cv.onmouseover=null;
 			cv.onmouseout=null;
 			cv.onclick=null;
 			cv.style.cursor='default';
-			}
-	}
+        }
+    }
 }
 
 prepcalendar('',ccm,ccy);
@@ -276,13 +265,11 @@ function upmonth(s)
     marr=((ccy%4)==0)?mnl:mnn;
 
     ccm+=s;
-    if (ccm>=12)
-	{
+    if (ccm>=12) {
         ccm-=12;
 		ccy++;
-	}
-	else if(ccm<0)
-	{
+    }
+	else if(ccm<0) {
 		ccm+=12;
 		ccy--;
 	}
@@ -302,8 +289,7 @@ function today() {
     prepcalendar('',sccm,sccy);
 }
 
-function addnull(d,m,y)
-{
+function addnull(d,m,y) {
     var d0='',m0='';
 	if (d<10)d0='0';
 	if (m<10)m0='0';
