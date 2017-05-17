@@ -40,18 +40,19 @@ function isChild(s,d) {
 * влево и вправо (вверх)
 *
 */
-function Left(obj) {
+function left(obj) {
     var curleft = 0;
     if (obj.offsetParent) {
         while (obj.offsetParent) {
             curleft += obj.offsetLeft
             obj = obj.offsetParent;
         }
+    }
         else if (obj.x)
             curleft += obj.x;
         return curleft;
 }
-function Top(obj) {
+function top(obj) {
     var curtop = 0;
     if (obj.offsetParent) {
         while (obj.offsetParent) {
@@ -110,35 +111,35 @@ var updobj;
 function lcs(ielem) {
     updobj=ielem;
     getObj('fc').style.left=Left(ielem)+'px';
-	getObj('fc').style.top=Top(ielem)+ielem.offsetHeight+'px';
-	getObj('fc').style.display='';
+        getObj('fc').style.top=Top(ielem)+ielem.offsetHeight+'px';
+         getObj('fc').style.display='';
 
 	// First check date is valid
     curdt=ielem.value;
-	curdtarr=curdt.split('-');
+       curdtarr=curdt.split('-');
     isdt=true;
     for(var k=0;k<curdtarr.length;k++) {
         if (isNaN(curdtarr[k]))
             isdt=false;
     }
     if (isdt&(curdtarr.length==3)) {
-		ccm=curdtarr[1]-1;
-		ccy=curdtarr[2];
+	        ccm=curdtarr[1]-1;
+	        ccy=curdtarr[2];
 
-		selectedd=parseInt ( curdtarr[0], 10 );
-		selectedm=parseInt ( curdtarr[1]-1, 10 );
-		selectedy=parseInt ( curdtarr[2], 10 );
+	        selectedd=parseInt ( curdtarr[0], 10 );
+                selectedm=parseInt ( curdtarr[1]-1, 10 );
+                selectedy=parseInt ( curdtarr[2], 10 );
 
-		prepcalendar(curdtarr[0],curdtarr[1]-1,curdtarr[2]);
+                prepcalendar(curdtarr[0],curdtarr[1]-1,curdtarr[2]);
     }
 }
 
 function evtTgt(e) {
-	var el;
-	if(e.target)el=e.target;
-	else if(e.srcElement)el=e.srcElement;
-	if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
-	return el;
+        var el;
+        if(e.target)el=e.target;
+        else if(e.srcElement)el=e.srcElement;
+        if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
+        return el;
 }
 function EvtObj(e){if(!e)e=window.event;return e;}
 function cs_over(e) {
@@ -168,31 +169,31 @@ var calvalarr=new Array(42);
 
 function f_cps(obj) {
     obj.style.background='#FFFFFF';
-	obj.style.font='10px Arial';
-	obj.style.color='#333333';
-	obj.style.textAlign='center';
-	obj.style.textDecoration='none';
-	obj.style.border='1px solid #FFD088';//'1px solid #606060';
-	obj.style.cursor='pointer';
+          obj.style.font='10px Arial';
+          obj.style.color='#333333';
+          obj.style.textAlign='center';
+          obj.style.textDecoration='none';
+          obj.style.border='1px solid #FFD088';//'1px solid #606060';
+          obj.style.cursor='pointer';
 }
 
 function f_cpps(obj) {
-	obj.style.background='#C4D3EA';
-	obj.style.font='10px Arial';
-	obj.style.color='#FF9900';
-	obj.style.textAlign='center';
-	obj.style.textDecoration='line-through';
-	obj.style.border='1px solid #6487AE';
-	obj.style.cursor='default';
+          obj.style.background='#C4D3EA';
+          obj.style.font='10px Arial';
+          obj.style.color='#FF9900';
+          obj.style.textAlign='center';
+          obj.style.textDecoration='line-through';
+          obj.style.border='1px solid #6487AE';
+          obj.style.cursor='default';
 }
 
 function f_hds(obj) {
-	obj.style.background='#FFF799';
-	obj.style.font='bold 10px Arial';
-	obj.style.color='#333333';
-	obj.style.textAlign='center';
-	obj.style.border='1px solid #6487AE';
-	obj.style.cursor='pointer';
+          obj.style.background='#FFF799';
+          obj.style.font='bold 10px Arial';
+          obj.style.color='#333333';
+          obj.style.textAlign='center';
+          obj.style.border='1px solid #6487AE';
+          obj.style.cursor='pointer';
 }
 /**
 * Выбор дня
@@ -202,13 +203,13 @@ function f_hds(obj) {
 */
 
 function prepcalendar(hd,cm,cy) {
-	now=new Date();
-	sd=now.getDate();
-	td=new Date();
-	td.setDate(1);
-	td.setFullYear(cy);
-	td.setMonth(cm);
-	cd=td.getDay();
+         now=new Date();
+         sd=now.getDate();
+         td=new Date();
+         td.setDate(1);
+         td.setFullYear(cy);
+         td.setMonth(cm);
+        cd=td.getDay();
     if (cd==0)cd=6; else cd--;
     getObj('mns').innerHTML=mn[cm]+'&nbsp;<span style="cursor:pointer" onclick="upmonth(-12)">&lt;</span>'+cy+'<span style="cursor:pointer" onclick="upmonth(12)">&gt;</span>';
     marr=((cy%4)==0)?mnl:mnn;
@@ -220,12 +221,12 @@ function prepcalendar(hd,cm,cy) {
             htd=((hd!='')&&(d-cd==hd));
 
             cv.onmouseover=cs_over;
-			cv.onmouseout=cs_out;
-			cv.onclick=cs_click;
+            cv.onmouseout=cs_out;
+            cv.onclick=cs_click;
 
 			// if today
-			if (sccm == cm && sccd == (d-cd) && sccy == cy)
-				cv.style.color='#FF9900';
+                             if (sccm == cm && sccd == (d-cd) && sccy == cy)
+                             cv.style.color='#FF9900';
 
 			// if selected date
             if (cm == selectedm && cy == selectedy && selectedd == (d-cd) ) {
@@ -236,17 +237,17 @@ function prepcalendar(hd,cm,cy) {
 				//cv.style.fontWeight='bold';
 
 				// when use style.background
-				cv.onmouseout=null;
+                              cv.onmouseout=null;
             }
-			cv.innerHTML=d-cd;
-			calvalarr[d]=addnull(d-cd,cm-(-1),cy);
+                            cv.innerHTML=d-cd;
+                            calvalarr[d]=addnull(d-cd,cm-(-1),cy);
         }
 		else {
-			cv.innerHTML='&nbsp;';
-			cv.onmouseover=null;
-			cv.onmouseout=null;
-			cv.onclick=null;
-			cv.style.cursor='default';
+                    cv.innerHTML='&nbsp;';
+                    cv.onmouseover=null;
+                    cv.onmouseout=null;
+                    cv.onclick=null;
+                    cv.style.cursor='default';
         }
     }
 }
@@ -270,10 +271,10 @@ function upmonth(s)
 		ccy++;
     }
 	else if(ccm<0) {
-		ccm+=12;
-		ccy--;
+              ccm+=12;
+              ccy--;
 	}
-	prepcalendar('',ccm,ccy);
+             prepcalendar('',ccm,ccy);
 }
 /**
 * Вызов текущей даты
@@ -291,8 +292,8 @@ function today() {
 
 function addnull(d,m,y) {
     var d0='',m0='';
-	if (d<10)d0='0';
-	if (m<10)m0='0';
+        if (d<10)d0='0';
+        if (m<10)m0='0';
 
-	return ''+d0+d+'-'+m0+m+'-'+y;
+        return ''+d0+d+'-'+m0+m+'-'+y;
 }
