@@ -5,9 +5,15 @@
 *
 */
 function getObj(objID) {
-    if (document.getElementById) {return document.getElementById(objID);}
-    else if (document.all) {return document.all[objID];}
-    else if (document.layers) {return document.layers[objID];}
+    if (document.getElementById) {
+        return document.getElementById(objID);
+    }
+    else if (document.all) {
+        return document.all[objID];
+    }
+    else if (document.layers) {
+        return document.layers[objID];
+    }
 }
 /**
 * Проверка клика
@@ -141,7 +147,10 @@ function evtTgt(e) {
         if(el.nodeType==3)el=el.parentNode; // defeat Safari bug
         return el;
 }
-function EvtObj(e){if(!e)e=window.event;return e;}
+function EvtObj(e) {
+    if(!e)e=window.event;
+    return e;
+}
 function cs_over(e) {
     evtTgt(EvtObj(e)).style.background='#FFEBCC';
 }
@@ -199,6 +208,8 @@ function f_hds(obj) {
 * Выбор дня
 *
 * Выбор дня при помощи дейтпикера
+* Формируются при помощи встроенных в JS 
+* функция для получения даты.
 *
 */
 
@@ -209,7 +220,7 @@ function prepcalendar(hd,cm,cy) {
          td.setDate(1);
          td.setFullYear(cy);
          td.setMonth(cm);
-        cd=td.getDay();
+    cd=td.getDay();
     if (cd==0)cd=6; else cd--;
     getObj('mns').innerHTML=mn[cm]+'&nbsp;<span style="cursor:pointer" onclick="upmonth(-12)">&lt;</span>'+cy+'<span style="cursor:pointer" onclick="upmonth(12)">&gt;</span>';
     marr=((cy%4)==0)?mnl:mnn;
