@@ -1,32 +1,31 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- This document was created with Syntext Serna Free. --><!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "docbookV4.5/docbookx.dtd" []>
-<appendix>
-  <appendixinfo>
+
+  <article> 
     <title>Руководство программиста (Хивренко А. ИПО-14А)</title>
-    <abstract>
+     <section>
       <title>Календарь Date - picker.</title>
       <para>Проект Календарь Date - picker позволяет выбирать при помощи графического интерфейся (календаря) и вставлять  данные (YYYY.MM.DD)</para>
       <para>Из-за этого проект можно использовать как в качестве пикера дат в формах в любых количествах.</para>
-    </abstract>
-  </appendixinfo>
+     </section>
+  
   <title>Сценарий №1</title>
-  <abstract>
+ <section>
     <title>Сценарий использования 1 - Выбор текущей даты</title>
     <para>Пользователь кликает на кнопку где отображается сегодняшняя дата и форма заполняется.</para>
     <para>Для отображения текущей даты используются стандартные (из коробки) функции JavaScript. Такие как: getDate, getMonth, getFullYear.</para>
-  </abstract>
-  <programlisting>function today() {
+    <programlisting>function today() {
+      updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear()); getObj(&apos;fc&apos;).style.display=&apos;none&apos;;
 
-updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear()); getObj(&apos;fc&apos;).style.display=&apos;none&apos;;
-
-prepcalendar(&apos;&apos;,sccm,sccy);
-
-}</programlisting>
-  <abstract>
+      prepcalendar(&apos;&apos;,sccm,sccy);}
+   </programlisting>
+   </section>
+  
+  <section>
     <title>Сценарий использования 2 - Выбор дня</title>
     <para>Пользователь кликает на определенный день недели при этом выбираются: (число, месяц, год).</para>
     <para>Применяются стили в зависимости от выбора пользователя. Берется текущая дата.</para>
-  </abstract>
+  
   <programlisting>function prepcalendar(hd,cm,cy) {
 
 now=new Date();
@@ -113,21 +112,25 @@ cv.style.cursor=&apos;default&apos;;
 
 }
 
-}</programlisting>
-  <abstract>
+}
+</programlisting> 
+</section>
+  <section>
     <title>Сценарий использования 3 - Получение текущей даты</title>
     <para>Пользователь при открытии календаря получает текущую дату.</para>
     <para>Создается объект Date и в нём вызываются методы getDate, getMonth, getFullYear.</para>
-  </abstract>
-  <programlisting>var now = new Date;
+     <programlisting>var now = new Date;
 
-var sccd=now.getDate();
+     var sccd=now.getDate();
 
-var sccm=now.getMonth();
+     var sccm=now.getMonth();
 
-var sccy=now.getFullYear();
+     var sccy=now.getFullYear();
 
-var ccm=now.getMonth();
+      var ccm=now.getMonth();
 
-var ccy=now.getFullYear();</programlisting>
-</appendix>
+      var ccy=now.getFullYear();</programlisting>
+  </section>
+ 
+ </article>
+
