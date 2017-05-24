@@ -128,8 +128,8 @@ var updobj;
 function lcs(ielem) {
     updobj = ielem;
     getObj('fc').style.left = Left(ielem)+'px';
-        getObj('fc').style.top = Top(ielem)+ielem.offsetHeight+'px';
-         getObj('fc').style.display = '';
+    getObj('fc').style.top = Top(ielem)+ielem.offsetHeight+'px';
+    getObj('fc').style.display = '';
 
     // First check date is valid
     curdt = ielem.value;
@@ -275,8 +275,8 @@ function prepcalendar(hd,cm,cy) {
                 // when use style.background
                 cv.onmouseout = null;
             }
-                cv.innerHTML = d-cd;
-                calvalarr[d] = addnull(d-cd,cm-(-1),cy);
+            cv.innerHTML = d-cd;
+            calvalarr[d] = addnull(d-cd,cm-(-1),cy);
         } else {
             cv.innerHTML = '&nbsp;';
             cv.onmouseover = null;
@@ -285,7 +285,6 @@ function prepcalendar(hd,cm,cy) {
             cv.style.cursor = 'default';
         }
     }
-
     prepcalendar('',ccm,ccy);
 }
 
