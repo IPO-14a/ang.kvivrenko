@@ -4,7 +4,7 @@
 * Возвращает слои календаря.
 *
 *@param objID Уникальный идентификатор объекта (слоя)
-*@param return возвращает слой
+*@param return возвращает идентификатор
 */
 function getObj(objID) {
     if (document.getElementById) {
