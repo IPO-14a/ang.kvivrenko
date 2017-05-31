@@ -4,7 +4,7 @@
 * 
 *
 *@param objID Уникальный идентификатор объекта (слоя)
-*@param return возвращает слои календаря
+*@return возвращает слои календаря
 */
 function getObj(objID) {
     if (document.getElementById) {
@@ -45,7 +45,7 @@ function checkClick(e) {
 *
 *@param s основной элемент
 *@param d дочерний элемент
-*@param return возвращает нажатие
+*@return возвращает нажатие
 */
 function isChild(s,d) {
     while(s) {
@@ -63,7 +63,7 @@ function isChild(s,d) {
 * влево 
 *
 *@param obj текущий объект (слой календаря)
-*@param return перемещение влево
+*@return смещение вверх в днях 
 */
 function left(obj) {
     var curleft = 0;
@@ -86,7 +86,7 @@ function left(obj) {
 * (вверх)
 *
 *@param obj текущий объект (слой календаря)
-*@param return перемещение вверх
+*@return перемещение вверх в месяцах
 */
 function top(obj) {
     var curtop = 0;
@@ -192,7 +192,7 @@ function lcs(ielem) {
 * Отображение навигации
 *@var el поучение даты
 *@param e отслеживает нажатие на теге SPAN
-*@param return возвращает дату
+*@return возвращает дату
 *
 */
 
@@ -215,7 +215,7 @@ function evtTgt(e) {
 * Отображение навигации
 *
 * @param e отслеживает нажатие на теге SPAN
-* @param return возвращает это же значение
+* @return возвращает нажатие
 */
 function EvtObj(e) {
     if(!e) {
@@ -413,7 +413,7 @@ function today() {
 *@param d день 
 *@param m месяц
 *@param y год
-*@param return возвращает день, месяц, год которые необходимо записать в календарь
+*@return возвращает день, месяц, год которые необходимо записать в календарь
 * 
 */
 function addnull(d,m,y) {
