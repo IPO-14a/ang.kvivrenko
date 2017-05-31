@@ -28,7 +28,7 @@ function getObj(objID) {
 *@param e отслеживает нажатие на теге SPAN
 */
 function checkClick(e) {
-    e?evt = e : evt = event;
+    evt = e : evt = event;
     CSE = evt.target?evt.target:evt.srcElement;
     if (CSE.tagName! = 'SPAN') {
         if (getObj('fc')) {
