@@ -3,7 +3,8 @@
 *
 * Возвращает слои календаря.
 *
-*@objID - Уникальный идентификатор объекта (слоя)
+*@param objID Уникальный идентификатор объекта (слоя)
+*@param return возвращает слой
 */
 function getObj(objID) {
     if (document.getElementById) {
@@ -24,7 +25,7 @@ function getObj(objID) {
 * Функция проверяет нажатие на теге 
 * input
 *
-*@e - отслеживает нажатие на теге SPAN
+*@param e отслеживает нажатие на теге SPAN
 */
 function checkClick(e) {
     e?evt = e : evt = event;
@@ -42,8 +43,8 @@ function checkClick(e) {
 *
 * Функция проверяет нажатие на дочернем элементе 
 *
-*@s - основной элемент
-*@d - дочерний элемент
+*@param s основной элемент
+*@param d дочерний элемент
 */
 function isChild(s,d) {
     while(s) {
@@ -58,9 +59,9 @@ function isChild(s,d) {
 * Перемещение по календарю
 *
 * Реализуется перемещение
-* влево и вправо (вверх)
+* влево 
 *
-*@obj - текущий объект (слой календаря)
+*@param obj текущий объект (слой календаря)
 */
 function left(obj) {
     var curleft = 0;
@@ -76,7 +77,14 @@ function left(obj) {
     }
     return curleft;
 }
-
+/**
+* Перемещение по календарю
+*
+* Реализуется перемещение
+* (вверх)
+*
+*@param obj текущий объект (слой календаря)
+*/
 function top(obj) {
     var curtop = 0;
     if (obj.offsetParent) {
@@ -98,15 +106,15 @@ function top(obj) {
 * при помощи HTML и CSS
 * Так же получает текущую дату
 *
-*@now - объект даты
-*@sccd - получить дату
-*@sccm - получить месяц
-*@sccy - получить год
-*@ccm - получить месяц
-*@ccy - получить год
-*@selectedd - выбранный день
-*@selectm - выбранный месяц
-*@seley - выбранный день
+*@var now  объект даты
+*@var sccd получить дату
+*@var sccm получить месяц
+*@var sccy получить год
+*@var cm получить месяц
+*@var ccy получить год
+*@var selectedd выбранный день
+*@var selectm выбранный месяц
+*@var seley выбранный день
 * 
 * Возвращает объект календаря
 */
@@ -144,8 +152,8 @@ for(var kk = 1;kk <= 6;kk ++) {
 *
 * Отображение навигации
 *
-* @updobj - обновлённый объект
-* @elem - текущий элемент навигации
+* @var updobj - обновлённый объект
+* @param ielem - текущий элемент навигации
 */
 var updobj;
 function lcs(ielem) {
@@ -175,6 +183,16 @@ function lcs(ielem) {
     }
 }
 
+/**
+* Навигация
+*
+* Отображение навигации
+*@var el поучение даты
+*@param e отслеживает нажатие на теге SPAN
+*@param return возвращает дату
+*
+*/
+
 function evtTgt(e) {
     var el;
     if(e.target) {
@@ -184,22 +202,48 @@ function evtTgt(e) {
             el = e.srcElement;
         }
     if(el.nodeType == 3) {
-        el = el.parentNode; // defeat Safari bug
+        el = el.parentNode; 
     }
     return el;
 }
+    /**
+* Навигация
+*
+* Отображение навигации
+*
+* @param e отслеживает нажатие на теге SPAN
+* @param return возвращает это же значение
+*/
 function EvtObj(e) {
     if(!e) {
         e = window.event;
     }
     return e;
 }
+    /**
+* Навигация
+*
+* Отображение навигации
+*
+*@param e отслеживает нажатие на теге SPAN
+*/
 function cs_over(e) {
     evtTgt(EvtObj(e)).style.background = '#FFEBCC';
 }
+    /**
+* Навигация
+*
+* @param e отслеживает нажатие на теге SPAN
+*/
 function cs_out(e) {
     evtTgt(EvtObj(e)).style.background = '#FFFFFF';
 }
+/**
+* Навигация
+*
+*Проверка клика
+* 
+*/
 function cs_click(e) {
     updobj.value=calvalarr[evtTgt(EvtObj(e)).id.substring(2,evtTgt(EvtObj(e)).id.length)];
     getObj('fc').style.display = 'none';
@@ -212,10 +256,11 @@ function cs_click(e) {
 * для организации и оформления
 * работы календаря
 *
-* @mn - Массив месяцев
-* @mnn - Массив чисел
-* @mnl - Массив чисел
-* @calvalarr - Пустой массив для дней
+* @param mn  Массив месяцев
+* @param mnn  Массив чисел
+* @param mnl  Массив чисел
+* @param calvalarr  Пустой массив для дней
+* @param objID Уникальный идентификатор объекта (слоя)
 *
 */
 
@@ -259,9 +304,9 @@ function f_hds(obj) {
 * Формируются при помощи встроенных в JS 
 * функция для получения даты.
 *
-* @hd - день
-* @cm - месяц
-* @cy - год
+* @param hd  день
+* @param cm  месяц
+* @param cy год
 */
 
 function prepcalendar(hd,cm,cy) {
@@ -325,7 +370,7 @@ function prepcalendar(hd,cm,cy) {
 * Отслеживает чтобы количество
 * месяцев не перешло за 12
 *
-* @s - подсчёт месяцев
+* @param s  подсчёт месяцев
 */
 function upmonth(s)
 {
@@ -356,7 +401,18 @@ function today() {
     getObj('fc').style.display='none';
     prepcalendar('',sccm,sccy);
 }
-
+/**
+* Вызов текущей даты
+*
+* При открытии календаря
+* в поле заносится текущая дата
+* 
+*@param d день 
+*@param m месяц
+*@param y год
+*@param return возвращает день, месяц, год которые необходимо записать в календарь
+* 
+*/
 function addnull(d,m,y) {
     var d0 = '',m0 = '';
     if (d < 10) {
