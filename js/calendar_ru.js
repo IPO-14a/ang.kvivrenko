@@ -63,7 +63,7 @@ function isChild(s,d) {
 * влево 
 *
 *@param obj текущий объект (слой календаря)
-*@return смещение вверх в днях 
+*@return смещение влево в днях 
 */
 function left(obj) {
     var curleft = 0;
@@ -78,6 +78,29 @@ function left(obj) {
         }
     }
     return curleft;
+}
+/**
+* Перемещение по календарю
+*
+* Реализуется перемещение
+* вправо
+*
+*@param obj текущий объект (слой календаря)
+*@return смещение вправо в днях 
+*/
+function right(obj) {
+    var curright = 0;
+    if (obj.offsetParent) {
+        while (obj.offsetParent) {
+            curright += obj.offsetright
+            obj = obj.offsetParent;
+        }
+    } else {
+        if (obj.x) {
+            curright += obj.x; 
+        }
+    }
+    return curright;
 }
 /**
 * Перемещение по календарю
