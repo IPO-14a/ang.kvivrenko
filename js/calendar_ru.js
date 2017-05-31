@@ -63,6 +63,7 @@ function isChild(s,d) {
 * влево 
 *
 *@param obj текущий объект (слой календаря)
+*@param return перемещение влево
 */
 function left(obj) {
     var curleft = 0;
@@ -85,6 +86,7 @@ function left(obj) {
 * (вверх)
 *
 *@param obj текущий объект (слой календаря)
+*@param return перемещение вверх
 */
 function top(obj) {
     var curtop = 0;
@@ -153,8 +155,8 @@ for(var kk = 1;kk <= 6;kk ++) {
 *
 * Отображение навигации
 *
-* @var updobj - обновлённый объект
-* @param ielem - текущий элемент навигации
+* @var updobj обновлённый объект
+* @param ielem текущий элемент навигации
 */
 var updobj;
 function lcs(ielem) {
@@ -371,7 +373,7 @@ function prepcalendar(hd,cm,cy) {
 * Отслеживает чтобы количество
 * месяцев не перешло за 12
 *
-* @param s  подсчёт месяцев
+* @param s подсчёт месяцев
 */
 function upmonth(s)
 {
