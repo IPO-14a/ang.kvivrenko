@@ -45,6 +45,7 @@ function checkClick(e) {
 *
 *@param s основной элемент
 *@param d дочерний элемент
+*@param return возвращает нажатие
 */
 function isChild(s,d) {
     while(s) {
