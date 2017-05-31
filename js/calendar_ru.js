@@ -282,10 +282,10 @@ function cs_click(e) {
 * для организации и оформления
 * работы календаря
 *
-* @param mn  Массив месяцев
-* @param mnn  Массив чисел
-* @param mnl  Массив чисел
-* @param calvalarr  Пустой массив для дней
+* @var mn  Массив месяцев
+* @var mnn  Массив чисел
+* @var mnl  Массив чисел
+* @var calvalarr  Пустой массив для дней
 * @param objID Уникальный идентификатор объекта (слоя)
 *
 */
@@ -333,6 +333,7 @@ function f_hds(obj) {
 * @param hd  день
 * @param cm  месяц
 * @param cy год
+* @var d день
 */
 
 function prepcalendar(hd,cm,cy) {
